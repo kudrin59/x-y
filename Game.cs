@@ -24,7 +24,7 @@ namespace ConsoleApp1
             while (!IsGameOver())
             {
                 map.Print();
-                if (players[num].symbol == 1)
+                if (players[num].checkWinMove)
                 {
                     if (CheckWinMove(players[num].symbol))
                     {
@@ -69,9 +69,15 @@ namespace ConsoleApp1
                 Console.Write($"Роль для {i + 1}-й игрока: ");
                 int num = Convert.ToInt32(Console.ReadLine());
                 if(num == 1)
+                {
                     player = new HumanPlayer();
+                    player.checkWinMove = false;
+                }
                 else
+                {
                     player = new CompPlayer();
+                    player.checkWinMove = true;
+                }
                 player.symbol = i + 1;
 
                 players[i] = player;

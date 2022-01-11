@@ -8,6 +8,7 @@ namespace ConsoleApp1
     {
         public int symbol { get; set; }
         public int moveCount { get; set; }
+        public bool checkWinMove { get; set;}
 
         public void Move(int[,] map, int mapSize, int opponentMoveCount)
         {
